@@ -1,7 +1,7 @@
 Summary:	Python binding for the wireless extensions
 Name:		python-wifi
 Version:	0.5.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 URL:		https://developer.berlios.de/projects/pythonwifi/
 Source0:	http://download.berlios.de/pythonwifi/%{name}-%{version}.tar.bz2
 #python-wifi is licensed under LGPLv2+, however, the examples
@@ -68,4 +68,4 @@ rm -rf %{buildroot}
 %doc docs/*.txt
 %{_mandir}/man8/iw*.*
 %{python_sitelib}/pythonwifi
-%{python_sitelib}/python_wifi*.egg-info
+%{python_sitelib}/python_wifi-%{version}-py%{pyver}.egg-info
