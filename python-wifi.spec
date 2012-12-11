@@ -1,14 +1,13 @@
 Summary:	Python binding for the wireless extensions
 Name:		python-wifi
 Version:	0.5.0
-Release:	%mkrel 2
+Release:	3
 URL:		https://developer.berlios.de/projects/pythonwifi/
 Source0:	http://download.berlios.de/pythonwifi/%{name}-%{version}.tar.bz2
 #python-wifi is licensed under LGPLv2+, however, the examples
 #(e.g. iwconfig.py and iwlist.py) are licensed under GPLv2+
 License:	LGPLv2+ and GPLv2+
 Group:		Development/Python
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildArch:	noarch
 BuildRequires:	python-devel
 BuildRequires:	python-setuptools
@@ -39,7 +38,6 @@ chmod 755 docs/logos tests
 
 
 %install
-rm -rf %{buildroot}
 %{__python} setup.py install --skip-build --root="%{buildroot}"
 
 #Delete the doc files, wrong location
@@ -58,14 +56,23 @@ mkdir -p %{buildroot}%{_mandir}
 mv %{buildroot}/usr/man/man8  %{buildroot}%{_mandir}
 rm -fr %{buildroot}/usr/man
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root,-)
 %doc README docs/AUTHORS docs/BUGS docs/ChangeLog
 %doc docs/LICENSE* docs/NEWS docs/ROADMAP docs/TODO docs/VERSION
 %doc docs/*.txt
 %{_mandir}/man8/iw*.*
 %{python_sitelib}/pythonwifi
-%{python_sitelib}/python_wifi-%{version}-py%{pyver}.egg-info
+%{python_sitelib}/python_wifi-%{version}-py%{py_ver}.egg-info
+
+
+%changelog
+* Sat Oct 30 2010 Ahmad Samir <ahmadsamir@mandriva.org> 0.5.0-2mdv2011.0
++ Revision: 590520
+- rebuild for python-2.7
+- use %%pyver macro in the file list.
+
+* Fri Mar 26 2010 Ahmad Samir <ahmadsamir@mandriva.org> 0.5.0-1mdv2010.1
++ Revision: 527883
+- import python-wifi
+
+
