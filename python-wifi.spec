@@ -1,7 +1,7 @@
 Summary:	Python binding for the wireless extensions
 Name:		python-wifi
 Version:	0.5.0
-Release:	3
+Release:	4
 URL:		https://developer.berlios.de/projects/pythonwifi/
 Source0:	http://download.berlios.de/pythonwifi/%{name}-%{version}.tar.bz2
 #python-wifi is licensed under LGPLv2+, however, the examples
